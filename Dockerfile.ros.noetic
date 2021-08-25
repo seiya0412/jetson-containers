@@ -14,6 +14,16 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 WORKDIR /workspace
 
+#
+# upgrade ubuntu release
+#
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        update-manager-core && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
+
+RUN echo "y" | do-release-upgrade
 
 #
 # add the ROS deb repo to the apt sources list
