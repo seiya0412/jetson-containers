@@ -30,14 +30,14 @@ RUN echo "y" | do-release-upgrade
 #
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-          git \
-		cmake \
-		build-essential \
-		curl \
-		wget \
-		gnupg2 \
-		lsb-release \
-		ca-certificates \
+        git \
+        cmake \
+        build-essential \
+        curl \
+        wget \
+        gnupg2 \
+        lsb-release \
+        ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
 RUN sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
